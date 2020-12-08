@@ -73,11 +73,8 @@ public class MenuNavigation extends BaseClass {
 		// Home Menu
 		headerName = HomePage.homeMenu().getText();
 		HomePage.homeMenu().click();		
-		//new Actions(driver).sendKeys(org.openqa.selenium.Keys.DOWN).perform();
 		driver.findElement(By.xpath("//div[@class='swiper-pagination swiper-pagination-clickable swiper-pagination-bullets']/span[3]")).click();
 		Thread.sleep(2000);
-		screenshots(folderName);
-		//test.createNode("Screenshots taken for Home Menu");
 
 
 		// To Navigate to Services Menu and Take Screen Shot
@@ -85,21 +82,18 @@ public class MenuNavigation extends BaseClass {
 		HomePage.servicesMenu().click();
 		Thread.sleep(3500);
 		screenshots(folderName);
-		//test.createNode("Screenshots taken for Services Menu");
 
 		// To Navigate to OpenSources Menu and Take Screen Shot
 		headerName = HomePage.openSourceMenu().getText();
 		HomePage.openSourceMenu().click();
 		Thread.sleep(3000);
 		screenshots(folderName);
-		//test.createNode("Screenshots taken for openSources Menu");
 
 		// To Navigate to Team Menu and Take Screen Shot
 		headerName = HomePage.teamMenu().getText();
 		HomePage.teamMenu().click();
 		Thread.sleep(15000);
 		screenshots(folderName);
-		//test.createNode("Screenshots taken for Team Menu");
 		
 
 		// To Navigate to Careers Menu and Take Screen Shot
@@ -107,22 +101,18 @@ public class MenuNavigation extends BaseClass {
 		HomePage.careersMenu().click();
 		Thread.sleep(3000);
 		screenshots(folderName);
-		//test.createNode("Screenshots taken for Careers Menu");
 
 		// To Navigate to Careers Menu and Take Screen Shot
 		headerName = HomePage.contactusMenu().getText();
 		HomePage.contactusMenu().click();
 		Thread.sleep(3000);
 		screenshots(folderName);
-//		Thread.sleep(1000);
-		//test.createNode("Screenshots taken for contactus Menu");
 
 		// To Navigate to Blog Menu and Take Screen Shot
 		headerName = HomePage.blogMenu().getText();
 		HomePage.blogMenu().click();
 		Thread.sleep(7000);
 		screenshots(folderName);
-		//test.createNode("Screenshots taken for Blog Menu");
 		
 		Assert.assertTrue(true);
 
@@ -130,7 +120,6 @@ public class MenuNavigation extends BaseClass {
 
 	public void screenshots(String folderName) throws IOException, InterruptedException {
 		
-//		Thread.sleep(4000);
 		String fileName = headerName;
 		String folder=folderName;
 		TestUtil.takeScreenShot(fileName,folder);

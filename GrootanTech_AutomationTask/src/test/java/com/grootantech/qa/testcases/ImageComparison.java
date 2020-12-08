@@ -8,27 +8,16 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.Status;
 import com.grootantech.qa.base.BaseClass;
 import com.grootantech.qa.pages.HomePage;
 import com.grootantech.qa.utility.ExcelUtils;
@@ -55,22 +44,22 @@ public class ImageComparison extends BaseClass {
 		colNo = 2;
 		rowNo = 2;
 		test = extent.createTest("Image Comparison For Menu Screenshots");
-		File directoryPath1 = new File(
+		File screenShotFolder1 = new File(
 				"C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\ScreenshotFolder1\\");
-		File directoryPath2 = new File(
+		File screenShotFolder2 = new File(
 				"C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\ScreenshotFolder2\\");
 
-		// List of all files and directories
-		String contents1[] = directoryPath1.list();
-		String contents2[] = directoryPath2.list();
-		for (int i = 0; i < contents1.length; i++) {
-			if (contents1[i].contentEquals(contents2[i])) {
+		// List of all screenshots in the folder
+		String imageList1[] = screenShotFolder1.list();
+		String imageList2[] = screenShotFolder2.list();
+		for (int i = 0; i < imageList1.length; i++) {
+			if (imageList1[i].contentEquals(imageList2[i])) {
 				BufferedImage expImg = ImageIO.read(new File(
 						"C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\ScreenshotFolder1\\"
-								+ contents1[i]));
+								+ imageList1[i]));
 				BufferedImage actualImg = ImageIO.read(new File(
 						"C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\ScreenshotFolder2\\"
-								+ contents2[i]));
+								+ imageList2[i]));
 
 				ImageDiffer imagediff = new ImageDiffer();
 				ImageDiff diff = imagediff.makeDiff(expImg, actualImg);
@@ -128,7 +117,7 @@ public class ImageComparison extends BaseClass {
 
 	}
 
-	@AfterSuite
+	@AfterTest
 	public void endReport() throws IOException {
 		extent.flush();
 	}

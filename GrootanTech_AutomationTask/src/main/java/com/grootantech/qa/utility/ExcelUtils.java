@@ -15,8 +15,8 @@ public class ExcelUtils {
 	private static XSSFRow Row;
 	static String filePath = "C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\TestResult\\TestCases_Result.xlsx";
 
-	// This method is to set the File path and to open the Excel file, Pass Excel
-	// Path and Sheetname as Arguments to this method
+	// This method is to set the File path and to open the Excel file
+	// Passing parameters as Excel Path and Sheetname
 	public static void setExcelFile(String Path, String SheetName) throws Exception {
 		try {
 			FileInputStream ExcelFile = new FileInputStream(Path);
@@ -27,8 +27,8 @@ public class ExcelUtils {
 		}
 	}
 
-	// This method is to read the test data from the Excel cell, in this we are
-	// passing parameters as Row num and Col num
+	// This method is to read the test data from the Excel cell
+	// Passing parameters as Row num and Col num
 	public static String getCellData(int RowNum, int ColNum) throws Exception {
 		try {
 			Cell = ExcelWSheet.getRow(RowNum).getCell(ColNum);
@@ -39,8 +39,8 @@ public class ExcelUtils {
 		}
 	}
 
-	// This method is to write in the Excel cell, Row num and Col num are the
-	// parameters
+	// To write in the Excel cell
+	// Passing Parameters as Row num and Col num
 	public static void setCellData(String Result, int RowNum, int ColNum) throws Exception {
 		try {
 			Row = ExcelWSheet.getRow(RowNum);
@@ -51,7 +51,6 @@ public class ExcelUtils {
 			} else {
 				Cell.setCellValue(Result);
 			}
-			// Constant variables Test Data path and Test Data file name
 			FileOutputStream fileOut = new FileOutputStream(filePath);
 			ExcelWBook.write(fileOut);
 			fileOut.flush();

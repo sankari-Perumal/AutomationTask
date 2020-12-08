@@ -2,17 +2,12 @@ package com.grootantech.qa.utility;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
-
-import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import com.grootantech.qa.base.BaseClass;
-
-import ru.yandex.qatools.ashot.Screenshot;
 
 public class TestUtil extends BaseClass{
 	
