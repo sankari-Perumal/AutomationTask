@@ -13,22 +13,21 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-
 import com.grootantech.qa.base.BaseClass;
 import com.grootantech.qa.pages.HomePage;
 import com.grootantech.qa.utility.ExcelUtils;
 import com.grootantech.qa.utility.TestUtil;
-
 
 public class MenuNavigation extends BaseClass {
 
 	String fileName;
 	String headerName;
 	String folder;
-	String path=System.getProperty("user.dir")+"\\TestResult\\TestCases.xlsx";
-	String sheetName="TSR";
+	String path = System.getProperty("user.dir") + "\\TestResult\\TestCases.xlsx";
+	String sheetName = "TSR";
 	int colNo;
 	int rowNo;
+
 	public MenuNavigation() {
 		super();
 	}
@@ -38,14 +37,14 @@ public class MenuNavigation extends BaseClass {
 		initialization();
 		setExtent();
 	}
-	
+
 	@Test
 	@Parameters("folderName1")
 	public void menuNNavigation(String scrnFolderName) throws Exception {
-		colNo=2;
-		rowNo=1;
-		String folderName=scrnFolderName;
-		test = extent.createTest("Menu Navigation for Grootan Technologies");	
+		colNo = 2;
+		rowNo = 1;
+		String folderName = scrnFolderName;
+		test = extent.createTest("Menu Navigation for Grootan Technologies");
 		Thread.sleep(15000);
 		// To Allow Cookies
 		HomePage.cookies().click();
@@ -58,10 +57,11 @@ public class MenuNavigation extends BaseClass {
 
 		// Home Menu
 		headerName = HomePage.homeMenu().getText();
-		HomePage.homeMenu().click();		
-		driver.findElement(By.xpath("//div[@class='swiper-pagination swiper-pagination-clickable swiper-pagination-bullets']/span[3]")).click();
+		HomePage.homeMenu().click();
+		driver.findElement(By.xpath(
+				"//div[@class='swiper-pagination swiper-pagination-clickable swiper-pagination-bullets']/span[3]"))
+				.click();
 		Thread.sleep(1000);
-
 
 		// To Navigate to Services Menu and Take Screen Shot
 		headerName = HomePage.servicesMenu().getText();
@@ -80,7 +80,6 @@ public class MenuNavigation extends BaseClass {
 		HomePage.teamMenu().click();
 		Thread.sleep(15000);
 		screenshots(folderName);
-		
 
 		// To Navigate to Careers Menu and Take Screen Shot
 		headerName = HomePage.careersMenu().getText();
@@ -99,29 +98,28 @@ public class MenuNavigation extends BaseClass {
 		HomePage.blogMenu().click();
 		Thread.sleep(10000);
 		screenshots(folderName);
-		
+
 		Assert.assertTrue(true);
 
 	}
 
 	public void screenshots(String folderName) throws IOException, InterruptedException {
-		
-		String fileName = headerName;
-		String folder=folderName;
-		TestUtil.takeScreenShot(fileName,folder);
-	}
 
+		String fileName = headerName;
+		String folder = folderName;
+		TestUtil.takeScreenShot(fileName, folder);
+	}
 
 	@AfterMethod
 	@Parameters("folderName3")
-	public void reportStaus(ITestResult result,String folderName) throws Exception
-	{
-		
-		ExcelUtils.setExcelFile(path,sheetName);
-		getResult(result,colNo,rowNo,folderName);
-		
+	public void reportStaus(ITestResult result, String folderName) throws Exception {
+
+		ExcelUtils.setExcelFile(path, sheetName);
+		// To generate Excel and Create HTML report
+		getResult(result, colNo, rowNo, folderName);
+
 	}
-	
+
 	@AfterTest
 	public void endReport() {
 		extent.flush();

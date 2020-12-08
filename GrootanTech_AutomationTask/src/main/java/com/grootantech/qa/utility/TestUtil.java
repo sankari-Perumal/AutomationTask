@@ -18,6 +18,7 @@ public class TestUtil extends BaseClass{
 		String fileName= fName+".png";
 		File dest = new File(System.getProperty("user.dir")+"\\"+folderName);
 		String fullPath=dest+"\\"+fileName;
+		//To Check the existence of Folder
 		if(!dest.exists())
 		{
 			dest.mkdir();

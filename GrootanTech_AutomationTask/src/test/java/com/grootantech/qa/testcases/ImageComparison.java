@@ -45,11 +45,14 @@ public class ImageComparison extends BaseClass {
 		colNo = 2;
 		rowNo = 2;
 		test = extent.createTest("Image Comparison For Menu Screenshots");
+		//To Store screen shots of first run 
 		File screenShotFolder1 = new File(System.getProperty("user.dir") + "\\ScreenshotFolder1\\");
+		//To Store screen shots of Re run
 		File screenShotFolder2 = new File(System.getProperty("user.dir") + "\\ScreenshotFolder2\\");
 		softassert = new SoftAssert();
-		// List of all screenshots in the folder
+		// List of all screenshots in the ScreenshotFolder1 from First Run
 		String imageList1[] = screenShotFolder1.list();
+		// List of all screenshots in the ScreenshotFolder2 from Re Run
 		String imageList2[] = screenShotFolder2.list();
 		for (int i = 0; i < imageList1.length; i++) {
 			if (imageList1[i].contentEquals(imageList2[i])) {
@@ -60,7 +63,6 @@ public class ImageComparison extends BaseClass {
 
 				ImageDiffer imagediff = new ImageDiffer();
 				ImageDiff diff = imagediff.makeDiff(expImg, actualImg);
-				System.out.println(diff.hasDiff());
 				softassert.assertTrue(diff.hasDiff() == false);
 			}
 
@@ -78,6 +80,8 @@ public class ImageComparison extends BaseClass {
 		Thread.sleep(1000);
 		HomePage.teamMenu().click();
 		Thread.sleep(10000);
+	
+		//To take screen shots of CTO&COFounder and HR Manager 
 		Screenshot logoCTO = new AShot().takeScreenshot(driver, HomePage.teamCTOCOFounder());
 		Screenshot logoHR = new AShot().takeScreenshot(driver, HomePage.teamHRManager());
 
@@ -96,8 +100,7 @@ public class ImageComparison extends BaseClass {
 		rowNo = 4;
 		test = extent.createTest("Entering Junior Engineers in Excel Sheet");
 		List<WebElement> je = driver.findElements(By.xpath("//h5[text()='Junior Engineer']//preceding-sibling::h3"));
-		ExcelUtils.setExcelFile(System.getProperty("user.dir") + "\\TestResult\\TestCases_Result.xlsx",
-				"JuniorEngineers");
+		ExcelUtils.setExcelFile(System.getProperty("user.dir") + "\\TestResult\\TestCases_Result.xlsx",	"JuniorEngineers");
 
 		for (int i = 0; i < je.size(); i++) {
 			ExcelUtils.setCellData((je.get(i).getText()), i, 0);
@@ -112,6 +115,7 @@ public class ImageComparison extends BaseClass {
 	@Parameters("folderName3")
 	public void reportStaus(ITestResult result, String folderName) throws Exception {
 		ExcelUtils.setExcelFile(path, sheetName);
+		// TO generate Excel and Create HTML report with screen shots
 		getResult(result, colNo, rowNo, folderName);
 
 	}
