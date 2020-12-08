@@ -74,7 +74,7 @@ public class MenuNavigation extends BaseClass {
 		headerName = HomePage.homeMenu().getText();
 		HomePage.homeMenu().click();		
 		driver.findElement(By.xpath("//div[@class='swiper-pagination swiper-pagination-clickable swiper-pagination-bullets']/span[3]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 
 		// To Navigate to Services Menu and Take Screen Shot
