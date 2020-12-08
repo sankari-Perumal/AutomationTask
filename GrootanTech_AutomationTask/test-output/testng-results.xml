@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="50278" started-at="2020-12-08T09:21:16 IST" finished-at="2020-12-08T09:22:06 IST">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="50278" started-at="2020-12-08T09:21:16 IST" finished-at="2020-12-08T09:22:06 IST">
+      <class name="com.grootantech.qa.testcases.ImageComparison">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.grootantech.qa.testcases.ImageComparison@18c1321]" name="setup" is-config="true" duration-ms="20704" started-at="2020-12-08T09:21:16 IST" finished-at="2020-12-08T09:21:37 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="compare()[pri:1, instance:com.grootantech.qa.testcases.ImageComparison@18c1321]" name="compare" duration-ms="5217" started-at="2020-12-08T09:21:37 IST" finished-at="2020-12-08T09:21:42 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- compare -->
+        <test-method status="PASS" signature="reportStaus(org.testng.ITestResult, java.lang.String)[pri:0, instance:com.grootantech.qa.testcases.ImageComparison@18c1321]" name="reportStaus" is-config="true" duration-ms="3579" started-at="2020-12-08T09:21:42 IST" finished-at="2020-12-08T09:21:46 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=compare status=SUCCESS method=ImageComparison.compare()[pri:1, instance:com.grootantech.qa.testcases.ImageComparison@18c1321] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ScreenshotFolder3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reportStaus -->
+        <test-method status="PASS" signature="teamsImageComparison()[pri:2, instance:com.grootantech.qa.testcases.ImageComparison@18c1321]" name="teamsImageComparison" duration-ms="18768" started-at="2020-12-08T09:21:46 IST" finished-at="2020-12-08T09:22:05 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teamsImageComparison -->
+        <test-method status="PASS" signature="reportStaus(org.testng.ITestResult, java.lang.String)[pri:0, instance:com.grootantech.qa.testcases.ImageComparison@18c1321]" name="reportStaus" is-config="true" duration-ms="621" started-at="2020-12-08T09:22:05 IST" finished-at="2020-12-08T09:22:05 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=teamsImageComparison status=SUCCESS method=ImageComparison.teamsImageComparison()[pri:2, instance:com.grootantech.qa.testcases.ImageComparison@18c1321] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ScreenshotFolder3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reportStaus -->
+        <test-method status="PASS" signature="junioreng()[pri:3, instance:com.grootantech.qa.testcases.ImageComparison@18c1321]" name="junioreng" duration-ms="517" started-at="2020-12-08T09:22:05 IST" finished-at="2020-12-08T09:22:06 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- junioreng -->
+        <test-method status="PASS" signature="reportStaus(org.testng.ITestResult, java.lang.String)[pri:0, instance:com.grootantech.qa.testcases.ImageComparison@18c1321]" name="reportStaus" is-config="true" duration-ms="718" started-at="2020-12-08T09:22:06 IST" finished-at="2020-12-08T09:22:06 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=junioreng status=SUCCESS method=ImageComparison.junioreng()[pri:3, instance:com.grootantech.qa.testcases.ImageComparison@18c1321] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ScreenshotFolder3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reportStaus -->
+        <test-method status="PASS" signature="endReport()[pri:0, instance:com.grootantech.qa.testcases.ImageComparison@18c1321]" name="endReport" is-config="true" duration-ms="945" started-at="2020-12-08T09:22:07 IST" finished-at="2020-12-08T09:22:07 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endReport -->
+      </class> <!-- com.grootantech.qa.testcases.ImageComparison -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
