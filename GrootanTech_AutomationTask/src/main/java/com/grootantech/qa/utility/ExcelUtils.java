@@ -13,7 +13,7 @@ public class ExcelUtils {
 	private static XSSFWorkbook ExcelWBook;
 	private static XSSFCell Cell;
 	private static XSSFRow Row;
-	static String filePath = "C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\TestResult\\TestCases_Result.xlsx";
+	static String filePath = System.getProperty("user.dir")+"\\TestResult\\TestCases_Result.xlsx";
 
 	// This method is to set the File path and to open the Excel file
 	// Passing parameters as Excel Path and Sheetname

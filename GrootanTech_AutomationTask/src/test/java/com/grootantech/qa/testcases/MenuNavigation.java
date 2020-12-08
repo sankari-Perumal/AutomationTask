@@ -1,45 +1,31 @@
 package com.grootantech.qa.testcases;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.time.Duration;
 
-import javax.imageio.ImageIO;
 import org.testng.ITestResult;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.ITestResult;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.Status;
+
 import com.grootantech.qa.base.BaseClass;
 import com.grootantech.qa.pages.HomePage;
 import com.grootantech.qa.utility.ExcelUtils;
 import com.grootantech.qa.utility.TestUtil;
 
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.comparison.ImageDiff;
-import ru.yandex.qatools.ashot.comparison.ImageDiffer;
 
 public class MenuNavigation extends BaseClass {
 
 	String fileName;
 	String headerName;
 	String folder;
-	String path="C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\TestResult\\TestCases.xlsx";
+	String path=System.getProperty("user.dir")+"\\TestResult\\TestCases.xlsx";
 	String sheetName="TSR";
 	int colNo;
 	int rowNo;
@@ -111,7 +97,7 @@ public class MenuNavigation extends BaseClass {
 		// To Navigate to Blog Menu and Take Screen Shot
 		headerName = HomePage.blogMenu().getText();
 		HomePage.blogMenu().click();
-		Thread.sleep(7000);
+		Thread.sleep(10000);
 		screenshots(folderName);
 		
 		Assert.assertTrue(true);

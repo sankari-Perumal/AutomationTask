@@ -10,13 +10,13 @@ import javax.imageio.ImageIO;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.grootantech.qa.base.BaseClass;
 import com.grootantech.qa.pages.HomePage;
@@ -30,8 +30,9 @@ import ru.yandex.qatools.ashot.comparison.ImageDiffer;
 public class ImageComparison extends BaseClass {
 
 	int colNo, rowNo;
-	String path = "C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\TestResult\\TestCases_Result.xlsx";
+	String path = System.getProperty("user.dir") + "\\TestResult\\TestCases_Result.xlsx";
 	String sheetName = "TSR";
+	SoftAssert softassert;
 
 	@BeforeTest
 	public void setup() throws FileNotFoundException {
@@ -44,26 +45,23 @@ public class ImageComparison extends BaseClass {
 		colNo = 2;
 		rowNo = 2;
 		test = extent.createTest("Image Comparison For Menu Screenshots");
-		File screenShotFolder1 = new File(
-				"C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\ScreenshotFolder1\\");
-		File screenShotFolder2 = new File(
-				"C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\ScreenshotFolder2\\");
-
+		File screenShotFolder1 = new File(System.getProperty("user.dir") + "\\ScreenshotFolder1\\");
+		File screenShotFolder2 = new File(System.getProperty("user.dir") + "\\ScreenshotFolder2\\");
+		softassert = new SoftAssert();
 		// List of all screenshots in the folder
 		String imageList1[] = screenShotFolder1.list();
 		String imageList2[] = screenShotFolder2.list();
 		for (int i = 0; i < imageList1.length; i++) {
 			if (imageList1[i].contentEquals(imageList2[i])) {
-				BufferedImage expImg = ImageIO.read(new File(
-						"C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\ScreenshotFolder1\\"
-								+ imageList1[i]));
-				BufferedImage actualImg = ImageIO.read(new File(
-						"C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\ScreenshotFolder2\\"
-								+ imageList2[i]));
+				BufferedImage expImg = ImageIO
+						.read(new File(System.getProperty("user.dir") + "\\ScreenshotFolder1\\" + imageList1[i]));
+				BufferedImage actualImg = ImageIO
+						.read(new File(System.getProperty("user.dir") + "\\ScreenshotFolder2\\" + imageList2[i]));
 
 				ImageDiffer imagediff = new ImageDiffer();
 				ImageDiff diff = imagediff.makeDiff(expImg, actualImg);
-				Assert.assertTrue(true);
+				System.out.println(diff.hasDiff());
+				softassert.assertTrue(diff.hasDiff() == false);
 			}
 
 		}
@@ -87,7 +85,8 @@ public class ImageComparison extends BaseClass {
 		BufferedImage hrImg = logoHR.getImage();
 		ImageDiffer imagediff = new ImageDiffer();
 		ImageDiff diff = imagediff.makeDiff(ctoImg, hrImg);
-		Assert.assertTrue(diff.hasDiff() == true);
+		softassert = new SoftAssert();
+		softassert.assertTrue(diff.hasDiff() == true);
 
 	}
 
@@ -97,15 +96,15 @@ public class ImageComparison extends BaseClass {
 		rowNo = 4;
 		test = extent.createTest("Entering Junior Engineers in Excel Sheet");
 		List<WebElement> je = driver.findElements(By.xpath("//h5[text()='Junior Engineer']//preceding-sibling::h3"));
-		ExcelUtils.setExcelFile(
-				"C:\\Users\\New\\eclipse-workspace\\Grootan\\GrootanTech_Automation\\TestResult\\TestCases_Result.xlsx",
+		ExcelUtils.setExcelFile(System.getProperty("user.dir") + "\\TestResult\\TestCases_Result.xlsx",
 				"JuniorEngineers");
 
 		for (int i = 0; i < je.size(); i++) {
 			ExcelUtils.setCellData((je.get(i).getText()), i, 0);
 
 		}
-		Assert.assertTrue(true);
+		softassert = new SoftAssert();
+		softassert.assertTrue(true);
 
 	}
 

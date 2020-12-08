@@ -6,7 +6,7 @@
 		<!-- <parameter name = "folderName1" value="ScreenshotFolder2"/> -->
 		<parameter name="folderName3" value="ScreenshotFolder3" />
 		<classes>
-			<!-- <class name="com.grootantech.qa.testcases.MenuNavigation"></class> -->
+<!-- 			<class name="com.grootantech.qa.testcases.MenuNavigation"/> -->
 			<class name="com.grootantech.qa.testcases.ImageComparison" />
 		</classes>
 	</test> <!-- Test -->

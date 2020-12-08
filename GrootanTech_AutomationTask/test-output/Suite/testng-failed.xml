@@ -3,7 +3,7 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <parameter name="folderName3" value="ScreenshotFolder3"/>
-    <parameter name="folderName1" value="ScreenshotFolder2"/>
+    <parameter name="folderName1" value="ScreenshotFolder1"/>
     <classes>
       <class name="com.grootantech.qa.testcases.ImageComparison">
         <methods>

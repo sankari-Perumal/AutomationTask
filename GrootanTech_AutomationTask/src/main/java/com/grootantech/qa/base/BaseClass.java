@@ -3,17 +3,9 @@ package com.grootantech.qa.base;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
-import javax.swing.text.Utilities;
-
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -23,10 +15,8 @@ import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.Status;
-//import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-//import com.aventstack.extentreports.reporter.configuration.Theme;
+
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.grootantech.qa.utility.ExcelUtils;
@@ -56,7 +46,7 @@ public class BaseClass {
 	public static void setExtent() {
 		reporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/GrootanTech_Report.html");
 		reporter.setAppendExisting(true);
-		reporter.config().setDocumentTitle("AutomationReports");
+		reporter.config().setDocumentTitle("Automation Report");
 		reporter.config().setReportName("Functional Report");
 		reporter.config().setTheme(Theme.DARK);
 
@@ -64,7 +54,7 @@ public class BaseClass {
 		extent.attachReporter(reporter);
 
 		extent.setSystemInfo("Hostname", "local");
-		extent.setSystemInfo("Tester", "Sankari");
+		extent.setSystemInfo("Tester", "Sivasankari");
 	}
 	
 	public void readProperty(String path)
